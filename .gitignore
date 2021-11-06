@@ -1,0 +1,8 @@
+.env
+
+obj_sky/
+*.a
+*.map
+*.log
+symbols.c
+symbols.h
