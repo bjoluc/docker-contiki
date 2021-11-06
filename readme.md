@@ -18,5 +18,5 @@ To run a shell in the container, issue `docker-compose exec contiki bash`.
 
 You may be able to use SSH with X Forwarding to access the Cooja GUI:
 
-* From your host machine, ssh into the `contiki` container via `ssh -X user@localhost -p 2222`
+* From your host machine, ssh into the `contiki` container via `ssh -X user@localhost -p 2222` (the password is `user`)
 * Via ssh, run `cooja` in the container
