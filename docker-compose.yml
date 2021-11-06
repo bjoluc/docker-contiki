@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   contiki:
-    image: bjoluc/contiki:latest
+    image: bjoluc/contiki:1.0.0
     # build: .
     environment:
       - DISPLAY=$DISPLAY
