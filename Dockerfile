@@ -22,14 +22,16 @@ RUN update-java-alternatives -s java-1.8.0-openjdk-amd64
 
 RUN mkdir /contiki && chmod 777 /contiki
 
-# Based on https://github.com/contiki-ng/contiki-ng/blob/ea66afaa5777193494331d78d2570f954507ba92/tools/docker/Dockerfile
-# Environment variables
+# Environment variables, based on https://github.com/contiki-ng/contiki-ng/blob/ea66afaa5777193494331d78d2570f954507ba92/tools/docker/Dockerfile
 ENV HOME /home/user
 ENV CONTIKI /contiki
 ENV COOJA ${CONTIKI}/tools/cooja
 ENV PATH="${HOME}:${PATH}"
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
+
+# Append the above environment variables to /etc/environment so they are available in SSH sessions
+RUN env | egrep "^(HOME=|CONTIKI=|COOJA=|PATH=|LC_ALL=|LANG=)" >> /etc/environment
 
 # Create an executable script to start cooja
 RUN echo '#!/bin/bash\njava -jar /contiki/tools/cooja/dist/cooja.jar -contiki=/contiki' > /usr/bin/cooja && \

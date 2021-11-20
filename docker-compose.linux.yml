@@ -4,7 +4,8 @@ services:
   contiki:
     image: bjoluc/contiki:1.0.1
     # build: .
+    environment:
+      - DISPLAY=$DISPLAY
     volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
       - "./src:/home/user/src"
-    ports:
-      - "2222:22"
