@@ -54,6 +54,10 @@ RUN git clone --recursive --branch 3.0 git://github.com/contiki-os/contiki.git $
 # Include temperature sensor in sky makefile
 RUN sed -i '3s;^;CONTIKI_TARGET_SOURCEFILES += temperature-sensor.c\n;' /contiki/platform/sky/Makefile.sky
 
+# Apply git patch for Cooja fixes
+COPY cooja.patch ${CONTIKI}
+RUN cd ${CONTIKI} && git apply cooja.patch && rm cooja.patch
+
 # Build Cooja
 RUN cd ${COOJA} && ant jar
 

@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   contiki:
-    image: bjoluc/contiki:1.0.1
+    image: bjoluc/contiki:1.1.0
     # build: .
     volumes:
       - "./src:/home/user/src"
